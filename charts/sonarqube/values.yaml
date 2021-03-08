@@ -19,8 +19,8 @@ OpenShift:
   createSCC: true
 
 image:
-  repository: sonarqube
-  tag: 8.5.1-community
+  repository: harbor.simonjamesrowe.com/simonjamesrowe/sonarqube
+  tag: 0.0.1
   pullPolicy: IfNotPresent
   # If using a private repository, the name of the imagePullSecret to use
   # pullSecret: my-repo-secret
