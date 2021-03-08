@@ -1,0 +1,36 @@
+buildPack: docker-helm
+pipelineConfig:
+  pipelines:
+    pullRequest:
+      build:
+        replace: true
+        steps:
+          - dir: charts/sonarqube
+            steps:
+              - sh: jx step helm build
+                name: helm-build
+
+    release:
+      setVersion:
+        replace: true
+        steps:
+          - sh: jx step next-version --use-git-tag-only --tag
+            name: tag-with-new-version
+      build:
+        replace: true
+        steps:
+          - dir: charts/sonarqube
+            steps:
+              - sh: jx step helm build --verbose
+                name: helm-build
+                comment: Let's build chart
+      promote:
+        replace: true
+        steps:
+          - dir: charts/sonarqube
+            steps:
+              - sh: jx step changelog --version v\$(cat ../../VERSION)
+                name: changelog
+              - comment: Let's release the helm chart
+                sh: jx step helm release
+                name: helm-release
