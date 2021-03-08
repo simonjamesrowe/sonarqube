@@ -1,0 +1,57 @@
+
+Showing logs for build [32msimonjamesrowe-sonarqube-master-b4tdx-2[0m stage [32mfrom-build-pack[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1615226636.8593404,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32msimonjamesrowe-sonarqube-master-b4tdx-2[0m stage [32mfrom-build-pack[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32msimonjamesrowe-sonarqube-master-b4tdx-2[0m stage [32mfrom-build-pack[0m and container [32mplace-tools[0m
+
+Showing logs for build [32msimonjamesrowe-sonarqube-master-b4tdx-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-simonjamesrowe-sonarqube-master-b4tdx-5xlq8[0m
+{"level":"info","ts":1615226645.3516245,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/simonjamesrowe/sonarqube.git @ v0.0.1 in path /workspace/source"}
+{"level":"warn","ts":1615226645.3519332,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /****/.ssh: file exists"}
+{"level":"info","ts":1615226645.4176922,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32msimonjamesrowe-sonarqube-master-b4tdx-2[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32msimonjamesrowe-sonarqube-master-b4tdx-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:f6fa70b1c5f4c00ee6caf6a722091809d7738342
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32msimonjamesrowe-sonarqube-master-b4tdx-2[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32msimonjamesrowe-sonarqube-master-b4tdx-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-build[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+DEBUG: Using helmBinary helm with feature flag: template-mode
+DEBUG: Initialising Helm 'init --client-only'
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+Running helm dependency build in .
+No requirements found in ./charts.
+
+Showing logs for build [32msimonjamesrowe-sonarqube-master-b4tdx-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/sonarqube to an unshallow repository
+Generating change log from git ref 93cf6410d81eab3aa3f86db891cf4f2328ef9862 => 35dc05186b195b67b8cadfd7df2e0aea40b1f339
+Associating user simon-rowe in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login simon-rowe-0 as emails match
+Adding label jenkins.io/git-github-userid=simon-rowe-0 to user simon-rowe in users.jenkins.io
+Associating user simon-rowe in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login simon-rowe-0 as emails match
+Adding label jenkins.io/git-github-userid=simon-rowe-0 to user simon-rowe in users.jenkins.io
+Finding issues in commit messages using git format
+Associating user simon-rowe in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login simon-rowe-0 as emails match
+Adding label jenkins.io/git-github-userid=simon-rowe-0 to user simon-rowe in users.jenkins.io
+Associating user simon-rowe in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login simon-rowe-0 as emails match
+Adding label jenkins.io/git-github-userid=simon-rowe-0 to user simon-rowe in users.jenkins.io
+WARNING: No release found for simonjamesrowe/sonarqube and tag v0.0.1 so creating a new release
+Updated the release information at https://github.com/simonjamesrowe/sonarqube/releases/tag/v0.0.1
+generated: /workspace/source/charts/sonarqube/templates/release.yaml
+Created Release sonarqube-0-0-1 resource in namespace **
+Updating PipelineActivity simonjamesrowe-sonarqube-master-2 with version 0.0.1
+Updated PipelineActivities simonjamesrowe-sonarqube-master-2 with release notes URL: https://github.com/simonjamesrowe/sonarqube/releases/tag/v0.0.1
+
+Showing logs for build [32msimonjamesrowe-sonarqube-master-b4tdx-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file sonarqube-0.0.1.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
